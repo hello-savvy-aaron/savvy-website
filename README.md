@@ -15,7 +15,8 @@ static files; Vercel is the default to match the rest of the Savvy stack.
 ```
 index.html        hero + scroll-snap project gallery (progressive-enhancement JS)
 favicon.svg       gradient rounded-square "S" mark
-assets/           project screenshots (e.g. hakadecks.jpg, 1600px-wide site capture)
+og.html           1200x630 social-card template -> assets/og.png (regen cmd inside)
+assets/           screenshots: hakadecks.jpg (site tile) + og.png (social card)
 vercel.json       static hosting config (clean URLs, asset caching)
 ```
 
