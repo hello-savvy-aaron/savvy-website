@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#FBF8F2" />
+
+    <title>savvy.website — Coming soon</title>
+    <meta
+      name="description"
+      content="savvy.website is becoming your hub for the sites worth visiting — all in one place. Launching soon."
+    />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.savvy.website" />
+    <meta property="og:title" content="savvy.website — Coming soon" />
+    <meta
+      property="og:description"
+      content="Your hub for the sites worth visiting — all in one place. Launching soon."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="savvy.website — Coming soon" />
+    <meta
+      name="twitter:description"
+      content="Your hub for the sites worth visiting — all in one place. Launching soon."
+    />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="mask-icon" href="/favicon.svg" color="#5B47E5" />
+    <link rel="canonical" href="https://www.savvy.website" />
+
+    <!-- Inter, matching the Hello Savvy design system -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ---- Hello Savvy design tokens (mirrors apps/marketing/app/globals.css) ---- */
+      :root {
+        --bg-canvas: #fbf8f2;
+        --bg-elevated: #ffffff;
+        --bg-section-tint: #f5f1e8;
+        --ink-primary: #0d1f1c;
+        --ink-secondary: #4a5854;
+        --ink-tertiary: #8a938f;
+
+        --brand-soft: #eee9fb;
+        --display-lavender: #5b47e5;
+        --display-violet: #8b5bd4;
+        --display-magenta: #d8479a;
+
+        --grad: linear-gradient(
+          135deg,
+          #5b47e5 0%,
+          #8b5bd4 50%,
+          #d8479a 100%
+        );
+
+        --radius-md: 16px;
+        --radius-pill: 9999px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-canvas);
+        color: var(--ink-primary);
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        font-feature-settings: "ss01", "cv11";
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      /* ---- Soft brand glow behind the content ---- */
+      .glow {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .glow::before,
+      .glow::after {
+        content: "";
+        position: absolute;
+        border-radius: var(--radius-pill);
+        filter: blur(90px);
+      }
+      .glow::before {
+        width: 60vmax;
+        height: 60vmax;
+        max-width: 620px;
+        max-height: 620px;
+        background: radial-gradient(circle, #eee9fb 0%, transparent 70%);
+        top: -22vmax;
+        left: 50%;
+        transform: translateX(-58%);
+        opacity: 0.7;
+        animation: drift-a 18s ease-in-out infinite alternate;
+      }
+      .glow::after {
+        width: 48vmax;
+        height: 48vmax;
+        max-width: 520px;
+        max-height: 520px;
+        background: radial-gradient(circle, #fbe9f1 0%, transparent 70%);
+        bottom: -20vmax;
+        right: 6%;
+        opacity: 0.65;
+        animation: drift-b 22s ease-in-out infinite alternate;
+      }
+      @keyframes drift-a {
+        to {
+          transform: translateX(-42%) translateY(4vmax);
+        }
+      }
+      @keyframes drift-b {
+        to {
+          transform: translateY(-5vmax) translateX(-3vmax);
+        }
+      }
+
+      /* ---- Layout ---- */
+      main {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 28px;
+        padding: 56px 24px;
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .mark {
+        width: 64px;
+        height: 64px;
+        border-radius: 14px;
+        box-shadow: 0 12px 30px -10px rgba(91, 71, 229, 0.45);
+        display: block;
+      }
+
+      .wordmark {
+        font-size: clamp(22px, 4vw, 28px);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      .wordmark .dot-tld {
+        color: var(--ink-tertiary);
+        font-weight: 600;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: var(--radius-pill);
+        background: var(--brand-soft);
+        color: var(--display-lavender);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 7px 14px;
+      }
+      .eyebrow .pulse {
+        width: 6px;
+        height: 6px;
+        border-radius: var(--radius-pill);
+        background: currentColor;
+        box-shadow: 0 0 0 0 rgba(91, 71, 229, 0.5);
+        animation: pulse 2.4s ease-out infinite;
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(91, 71, 229, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 7px rgba(91, 71, 229, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(91, 71, 229, 0);
+        }
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(36px, 7vw, 64px);
+        line-height: 1.05;
+        letter-spacing: -0.025em;
+        font-weight: 700;
+        color: var(--ink-primary);
+        max-width: 15ch;
+      }
+
+      .sub {
+        margin: 0;
+        font-size: clamp(16px, 2.3vw, 20px);
+        line-height: 1.5;
+        color: var(--ink-secondary);
+        max-width: 50ch;
+      }
+
+      /* Signature lavender → magenta gradient on one emphasis word (DS §3) */
+      .grad {
+        background-image: var(--grad);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: shimmer 9s ease-in-out infinite;
+      }
+      @keyframes shimmer {
+        0%,
+        100% {
+          background-position: 0% center;
+        }
+        50% {
+          background-position: 100% center;
+        }
+      }
+
+      /* ---- Footer ---- */
+      footer {
+        position: relative;
+        z-index: 1;
+        padding: 24px;
+        text-align: center;
+        font-size: 13px;
+        color: var(--ink-tertiary);
+      }
+
+      /*
+        ───────────────────────────────────────────────────────────────────────
+        LINK HUB — ready for launch.
+        When savvy.website goes live, drop your sites into this grid and remove
+        the `hidden` attribute on <section class="links">. Styles are below.
+        ───────────────────────────────────────────────────────────────────────
+      */
+      .links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+        width: min(880px, 100%);
+        margin-top: 8px;
+      }
+      .links a {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        text-align: left;
+        text-decoration: none;
+        padding: 18px 20px;
+        border-radius: var(--radius-md);
+        background: var(--bg-elevated);
+        border: 1px solid rgba(13, 31, 28, 0.08);
+        color: var(--ink-primary);
+        transition: transform 0.15s ease, border-color 0.15s ease,
+          box-shadow 0.15s ease;
+      }
+      .links a:hover {
+        transform: translateY(-2px);
+        border-color: var(--display-lavender);
+        box-shadow: 0 14px 30px -18px rgba(91, 71, 229, 0.5);
+      }
+      .links a .name {
+        font-weight: 600;
+      }
+      .links a .desc {
+        font-size: 14px;
+        color: var(--ink-secondary);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .glow::before,
+        .glow::after,
+        .eyebrow .pulse,
+        .grad {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glow" aria-hidden="true"></div>
+
+    <main>
+      <div class="brand">
+        <!-- Gradient rounded-square mark (echoes the HelloSavvy "HS" icon) -->
+        <svg
+          class="mark"
+          viewBox="0 0 120 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="savvy.website"
+        >
+          <defs>
+            <linearGradient
+              id="s"
+              x1="6"
+              y1="6"
+              x2="114"
+              y2="114"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop offset="0" stop-color="#5B47E5" />
+              <stop offset="0.5" stop-color="#8B5BD4" />
+              <stop offset="1" stop-color="#D8479A" />
+            </linearGradient>
+          </defs>
+          <rect x="6" y="6" width="108" height="108" rx="26" fill="url(#s)" />
+          <text
+            x="60"
+            y="60"
+            fill="#FFFFFF"
+            font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+            font-size="62"
+            font-weight="800"
+            letter-spacing="-2"
+            text-anchor="middle"
+            dominant-baseline="central"
+          >
+            S
+          </text>
+        </svg>
+
+        <div class="wordmark">
+          <span class="grad">savvy</span><span class="dot-tld">.website</span>
+        </div>
+      </div>
+
+      <span class="eyebrow"><span class="pulse"></span>Launching soon</span>
+
+      <h1>A smarter way to <span class="grad">explore</span> the web.</h1>
+
+      <p class="sub">
+        savvy.website is becoming your hub for the sites worth visiting — all in
+        one place. We're putting it together now.
+      </p>
+
+      <!-- LINK HUB placeholder — un-hide when ready (see CSS comment above)
+      <section class="links">
+        <a href="https://hellosavvy.design"><span class="name">HelloSavvy</span><span class="desc">Custom solutions, transparently built.</span></a>
+      </section>
+      -->
+    </main>
+
+    <footer>
+      <span class="grad" style="font-weight: 700">savvy</span> · © 2026
+      savvy.website
+    </footer>
+  </body>
+</html>
