@@ -134,8 +134,12 @@
         gap: clamp(28px, 4.5vw, 64px); align-items: center;
       }
       .slide-index { font-size: 13px; font-weight: 600; letter-spacing: 0.14em; color: var(--ink-tertiary); font-variant-numeric: tabular-nums; }
+      .slide-kicker { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+      .badge-concept { display: inline-flex; align-items: center; gap: 7px; border-radius: var(--radius-pill); background: #faecd0; color: #8a5a12; border: 1px solid #efd9a8; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; padding: 5px 11px; }
+      .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #c98a1e; display: block; }
       .slide-name { margin: 10px 0 0; font-size: clamp(28px, 3.4vw, 44px); font-weight: 700; letter-spacing: -0.025em; }
       .slide-blurb { margin: 14px 0 0; max-width: 42ch; font-size: clamp(15px, 1.5vw, 18px); line-height: 1.5; color: var(--ink-secondary); }
+      .slide-note { margin: 10px 0 0; max-width: 40ch; font-style: italic; font-size: clamp(13px, 1.3vw, 15px); line-height: 1.45; color: var(--ink-tertiary); }
       .tags { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
       .tags li { font-size: 12px; font-weight: 600; letter-spacing: 0.03em; color: var(--ink-secondary); background: var(--bg-section-tint); border: 1px solid var(--hairline); border-radius: var(--radius-pill); padding: 6px 12px; }
       .visit-btn {
@@ -271,13 +275,17 @@
           <article class="slide">
             <div class="slide-inner">
               <div class="slide-info">
-                <span class="slide-index">02</span>
+                <div class="slide-kicker">
+                  <span class="slide-index">02</span>
+                  <span class="badge-concept"><span class="badge-dot" aria-hidden="true"></span>Conceptual</span>
+                </div>
                 <h2 class="slide-name">Campster</h2>
                 <p class="slide-blurb">
                   An AI trip planner for the U.S. national parks — routes, nightly
                   stops, meals, water, packing, and a morning game plan for every
                   day. Powered by Claude.
                 </p>
+                <p class="slide-note">A proof-of-concept — bringing someone's idea to life, not a fully built app.</p>
                 <ul class="tags"><li>Product</li><li>AI</li><li>Trip planning</li><li>Powered by Claude</li></ul>
                 <a class="visit-btn" href="https://campster.savvy.website" target="_blank" rel="noopener">Visit site ↗</a>
               </div>
