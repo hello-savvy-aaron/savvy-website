@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!--
+      Tile template for the "Basic Bitch" coming-soon brand — rendered to
+      /assets/basic-bitch.png at 1200x630 (matches the carousel frame ratio).
+      Regenerate:
+        python3 -m http.server 8799 --directory . &
+        CHROME="$HOME/.cache/puppeteer/chrome/"*/chrome-mac-arm64/"Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"
+        $CHROME --headless=new --force-device-scale-factor=2 --hide-scrollbars --window-size=1200,630 --virtual-time-budget=4000 --screenshot=assets/bb-raw.png http://localhost:8799/basic-bitch.html
+        sips -Z 1200 assets/bb-raw.png --out assets/basic-bitch.png && rm assets/bb-raw.png
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      .card {
+        width: 1200px; height: 630px; position: relative; overflow: hidden;
+        background: #f9e4ed;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .blob { position: absolute; border-radius: 50%; background: #f3ccdb; }
+      .blob.tr { width: 360px; height: 360px; top: -112px; right: -64px; }
+      .blob.br { width: 300px; height: 300px; bottom: -96px; right: 96px; }
+      .blob.bl { width: 232px; height: 232px; bottom: -92px; left: -66px; }
+
+      .content { position: relative; z-index: 1; height: 100%; padding: 56px 80px; display: flex; flex-direction: column; justify-content: center; }
+      .eyebrow { font-size: 21px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #b23a63; }
+      h1 { margin: 18px 0 0; font-size: 72px; line-height: 1.05; letter-spacing: -0.02em; font-weight: 800; color: #401627; }
+      .sub { margin: 22px 0 0; max-width: 640px; font-size: 25px; line-height: 1.35; font-weight: 500; color: #7e3149; }
+      .badge {
+        margin-top: 34px; align-self: flex-start; display: inline-flex; align-items: center; gap: 9px;
+        background: #ffffff; border-radius: 9999px; padding: 11px 21px 11px 17px;
+        box-shadow: 0 10px 22px -14px rgba(64, 22, 39, 0.45);
+      }
+      .badge span { font-size: 18px; font-weight: 700; color: #b23a63; }
+      .badge svg { width: 20px; height: 20px; display: block; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="blob tr"></div>
+      <div class="blob br"></div>
+      <div class="blob bl"></div>
+      <div class="content">
+        <div class="eyebrow">Basic Bitch</div>
+        <h1>Zero toxins.<br />Zero guilt.</h1>
+        <p class="sub">Clean, safe products that keep it simple for moms — just like the name says.</p>
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2.5l7 3v6c0 4.4-3 7.4-7 8.9-4-1.5-7-4.5-7-8.9v-6l7-3z" fill="#b23a63" />
+            <path d="M8.5 12.2l2.3 2.3 4.6-4.8" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span>Guaranteed All Natural</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

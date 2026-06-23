@@ -137,6 +137,11 @@
       .slide-kicker { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
       .badge-concept { display: inline-flex; align-items: center; gap: 7px; border-radius: var(--radius-pill); background: #faecd0; color: #8a5a12; border: 1px solid #efd9a8; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; padding: 5px 11px; }
       .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #c98a1e; display: block; }
+      .badge-soon { display: inline-flex; align-items: center; gap: 7px; border-radius: var(--radius-pill); background: #fbe7ef; color: #bb3a66; border: 1px solid #f1cdda; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; padding: 5px 11px; }
+      .badge-soon .badge-dot { background: #cf4a7c; animation: pulse-dot 2s ease-in-out infinite; }
+      @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.78); } }
+      .slide-shot.static { cursor: default; }
+      .slide-shot.static:hover .browser, .slide-shot.static:focus-visible .browser { transform: none; }
       .slide-name { margin: 10px 0 0; font-size: clamp(28px, 3.4vw, 44px); font-weight: 700; letter-spacing: -0.025em; }
       .slide-blurb { margin: 14px 0 0; max-width: 42ch; font-size: clamp(15px, 1.5vw, 18px); line-height: 1.5; color: var(--ink-secondary); }
       .slide-note { margin: 10px 0 0; max-width: 40ch; font-style: italic; font-size: clamp(13px, 1.3vw, 15px); line-height: 1.45; color: var(--ink-tertiary); }
@@ -206,7 +211,7 @@
       @media (max-width: 560px) { .attrib { display: none; } }
 
       @media (prefers-reduced-motion: reduce) {
-        .grad { animation: none; }
+        .grad, .badge-soon .badge-dot { animation: none; }
       }
     </style>
   </head>
@@ -295,6 +300,29 @@
                   <img src="assets/campster.png" width="1200" height="630" alt="Campster — a National Park Trip Planner." />
                 </div>
               </a>
+            </div>
+          </article>
+
+          <article class="slide">
+            <div class="slide-inner">
+              <div class="slide-info">
+                <div class="slide-kicker">
+                  <span class="slide-index">03</span>
+                  <span class="badge-soon"><span class="badge-dot" aria-hidden="true"></span>Coming soon</span>
+                </div>
+                <h2 class="slide-name">Basic Bitch</h2>
+                <p class="slide-blurb">
+                  Clean, safe, all-natural products that keep it simple for moms —
+                  zero toxins, zero guilt. A new brand we're building now.
+                </p>
+                <ul class="tags"><li>Brand</li><li>Clean products</li><li>For moms</li></ul>
+              </div>
+              <div class="slide-shot static">
+                <div class="browser">
+                  <div class="bar"><span class="dots-bar" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">coming soon</span></div>
+                  <img src="assets/basic-bitch.png" width="1200" height="630" alt="Basic Bitch — a clean, all-natural products brand for moms. Zero toxins. Zero guilt." />
+                </div>
+              </div>
             </div>
           </article>
         </div>
