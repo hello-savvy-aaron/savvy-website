@@ -2,9 +2,9 @@
 
 A portfolio showcase for [www.savvy.website](https://www.savvy.website) — the
 websites and projects built by [HelloSavvy](https://hellosavvy.design), in the
-Hello Savvy design aesthetic. The hero is a horizontally scrollable gallery of
-projects. It starts with one — [Haka Decks](https://www.hakadecks.com) — and is
-built to grow.
+Hello Savvy design aesthetic. The hero is a full-width, auto-advancing carousel
+that shows one project at a time — [Haka Decks](https://www.hakadecks.com),
+[Campster](https://campster.savvy.website), and more to come.
 
 ## Stack
 
@@ -13,16 +13,16 @@ Zero build step — a self-contained static `index.html` (design tokens mirror
 static files; Vercel is the default to match the rest of the Savvy stack.
 
 ```
-index.html        hero + scroll-snap project gallery (progressive-enhancement JS)
+index.html        full-width auto-advancing project carousel (progressive-enhancement JS)
 favicon.svg       gradient rounded-square "S" mark
 og.html           1200x630 social-card template -> assets/og.png (regen cmd inside)
-assets/           screenshots: hakadecks.jpg (site tile) + og.png (social card)
+assets/           project shots (hakadecks.jpg, campster.png) + og.png + campster-hero.jpg
 vercel.json       static hosting config (clean URLs, asset caching)
 ```
 
 ## Add a project
 
-Each project is one `<article class="project">` block in the `#track` element.
+Each project is one `<article class="slide">` block in the `#track` element.
 To add one:
 
 1. **Capture a screenshot** of the site (~1600px wide) and drop it in `assets/`.
@@ -31,12 +31,12 @@ To add one:
    curl -sL "https://api.microlink.io/?url=https%3A%2F%2Fexample.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1366&viewport.height=854&viewport.deviceScaleFactor=2" -o assets/raw.png
    sips -s format jpeg -s formatOptions 82 -Z 1600 assets/raw.png --out assets/example.jpg && rm assets/raw.png
    ```
-2. **Duplicate** the commented `<article class="project">` block in `index.html`
-   and update the `href` (×2), `<img src/alt>`, the URL pill, the `<h2>` name,
-   the blurb, and the discipline `<li>` tags.
+2. **Duplicate** the commented `<article class="slide">` block in `index.html`
+   and update the index number, `<h2 class="slide-name">`, the blurb, the `<li>`
+   tags, both `href`s, the URL pill, and the `<img src/alt>`.
 
-The dot + arrow scroll controls appear automatically once there's more than one
-card; with a single project they stay hidden.
+The carousel auto-builds the dots + counter and auto-advances whenever there's
+more than one slide — no extra wiring.
 
 ## Preview locally
 
