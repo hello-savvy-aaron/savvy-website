@@ -159,7 +159,8 @@
       .bar .dots-bar { display: flex; gap: 6px; }
       .bar .dots-bar i { width: 11px; height: 11px; border-radius: 50%; background: #d9d3c7; display: block; }
       .bar .url { margin: 0 auto; font-size: 13px; color: var(--ink-tertiary); background: var(--bg-canvas); border-radius: var(--radius-pill); padding: 4px 14px; max-width: 64%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-      .browser img { display: block; width: 100%; height: auto; max-height: 56vh; object-fit: cover; object-position: center top; }
+      /* Lock every shot to one ratio so all frames are the same height. */
+      .browser img { display: block; width: 100%; aspect-ratio: 1200 / 630; height: auto; object-fit: cover; object-position: center; }
 
       /* ---- Carousel controls ---- */
       .c-nav {
@@ -196,7 +197,6 @@
         .slide-inner { grid-template-columns: 1fr; gap: 22px; }
         .slide-shot { order: 1; }
         .slide-info { order: 2; }
-        .browser img { max-height: none; }
         .c-nav { display: none; }
       }
       @media (max-width: 560px) { .attrib { display: none; } }
